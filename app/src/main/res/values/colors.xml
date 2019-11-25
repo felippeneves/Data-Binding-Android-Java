@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+    <!--Cores Originais-->
+    <color name="Red">#FF0000</color>
+    <color name="RedHintError">#f44336</color>
+    <color name="SlateGray">#708090</color>
+    <color name="Black">#000000</color>
+    <color name="DarkGray">#444444</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Blue200">#007abd</color>
+    <color name="Blue100">#00aae7</color>
+    <color name="Blue300">#066eaf</color>
+    <color name="Gaisnboro">#dcdcdc</color>
+    <color name="Whitesmoke">#f5f5f5</color>
+    <color name="Darkgreen">#006400</color>
+    <color name="Green">#008000</color>
+    <color name="LightGreen">#76FF03</color>
+    <color name="Yellow">#FFEA00</color>
+    <color name="MarcaDagua">#D7DAE8</color>
+    <color name="BlackTransparente">#7F000000</color>
+    <color name="Gold">#FFD700</color>
+    <color name="Orange">#ef6c00</color>
+    <color name="pinkish_grey">#d1d1d1</color>
+    <color name="colorSemFoco">#9f9f9f</color>
+
+</resources>
