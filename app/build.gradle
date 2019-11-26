@@ -37,5 +37,5 @@ dependencies {
     api "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
-    implementation 'br.com.datamob.bibliotecasandroidnativo:geral:1.0.0'
+    implementation 'br.com.datamob.bibliotecas.android.nativo:geral:1.0.0'
 }
