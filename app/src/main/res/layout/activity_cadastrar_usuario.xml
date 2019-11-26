@@ -35,7 +35,8 @@
                 android:text="@={usuarioViewModel.nome}"
                 android:maxLines="1"
                 android:selectAllOnFocus="true"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                cadastrarUsuario_SetEventoValidacao="@{usuarioViewModel}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,7 +57,9 @@
                 android:text="@={usuarioViewModel.codigo}"
                 android:maxLines="1"
                 android:selectAllOnFocus="true"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                cadastrarUsuario_SetEventoValidacao="@{usuarioViewModel}"/>
+
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,7 +80,9 @@
                 android:text="@={usuarioViewModel.unidade}"
                 android:maxLines="1"
                 android:selectAllOnFocus="true"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                cadastrarUsuario_SetEventoValidacao="@{usuarioViewModel}"/>
+
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,7 +103,9 @@
                 android:hint="Fazenda"
                 android:maxLines="1"
                 android:selectAllOnFocus="true"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                cadastrarUsuario_SetEventoValidacao="@{usuarioViewModel}"/>
+
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,7 +126,9 @@
                 android:hint="Item Calculado"
                 android:maxLines="1"
                 android:selectAllOnFocus="true"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                cadastrarUsuario_SetEventoValidacao="@{usuarioViewModel}"/>
+
 
         </com.google.android.material.textfield.TextInputLayout>
 

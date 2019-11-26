@@ -3,12 +3,23 @@ package br.com.datamob.binding_cadastro.tela;
 import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.BindingAdapter;
 import androidx.databinding.ObservableField;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.ViewParent;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
+import br.com.datamob.binding_cadastro.R;
 import br.com.datamob.binding_cadastro.Resposta;
 import br.com.datamob.binding_cadastro.base.entidade.UsuarioEnt;
 import br.com.datamob.binding_cadastro.controlador.UsuarioControlador;
@@ -74,7 +85,6 @@ public class CadastrarUsuarioViewModel
             if(!validaItemCalculado())
                 return;
 
-//            Resposta resposta = usuarioControlador.insereUsuario(new UsuarioEnt(nome.get(), (codigo.get() != null ? Long.valueOf(codigo.get()) : null), unidade.get(), fazenda.get(), (itemCalculado.get() != null ? Double.valueOf(itemCalculado.get()) : null)));
             Resposta resposta = usuarioControlador.insereUsuario(new UsuarioEnt(nome.get(), Long.valueOf(codigo.get()), unidade.get(), fazenda.get(), Double.valueOf(itemCalculado.get())));
 
 
@@ -94,7 +104,7 @@ public class CadastrarUsuarioViewModel
         }
     }
 
-    private boolean validaNome()
+    public boolean validaNome()
     {
         String nomeAtr = nome.get();
         if(nomeAtr != null && !nomeAtr.isEmpty())
@@ -108,7 +118,7 @@ public class CadastrarUsuarioViewModel
         }
     }
 
-    private boolean validaCodigo()
+    public boolean validaCodigo()
     {
         String nomeAtr = codigo.get();
         if(nomeAtr != null && !nomeAtr.isEmpty())
@@ -122,7 +132,7 @@ public class CadastrarUsuarioViewModel
         }
     }
 
-    private boolean validaUnidade()
+    public boolean validaUnidade()
     {
         String nomeAtr = unidade.get();
         if(nomeAtr != null && !nomeAtr.isEmpty())
@@ -136,7 +146,7 @@ public class CadastrarUsuarioViewModel
         }
     }
 
-    private boolean validaFazenda()
+    public boolean validaFazenda()
     {
         String nomeAtr = fazenda.get();
         if(nomeAtr != null && !nomeAtr.isEmpty())
@@ -150,7 +160,7 @@ public class CadastrarUsuarioViewModel
         }
     }
 
-    private boolean validaItemCalculado()
+    public boolean validaItemCalculado()
     {
         String nomeAtr = itemCalculado.get();
         if(nomeAtr != null && !nomeAtr.isEmpty())
@@ -173,8 +183,83 @@ public class CadastrarUsuarioViewModel
 
     //endregion
 
+
+    //region Adapter Databindings
+
+    @BindingAdapter({"cadastrarUsuario_SetEventoValidacao"})
+    public static void setEventoValidacao(final TextInputEditText editText, final CadastrarUsuarioViewModel viewModel)
+    {
+        final TextInputLayout textInputLayout = (TextInputLayout) editText.getParent().getParent();
+
+        final int id = textInputLayout.getId();
+
+        editText.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+                textInputLayout.setErrorEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+//                if(viewModel.rCTI != null)
+//                {
+//                    viewModel.rCTI = null;
+//                    controlaCampoInvalido(etTicket, tilTicket, null);
+//                }
+            }
+        });
+
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener()
+        {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                if(actionId == EditorInfo.IME_ACTION_DONE)
+                {
+                    switch(id)
+                    {
+                        case R.id.etNome:
+                            viewModel.validaNome();
+                            break;
+                        case R.id.etCodigo:
+                            viewModel.validaCodigo();
+                            break;
+                        case R.id.etUnidade:
+                            viewModel.validaUnidade();
+                            break;
+                        case R.id.etFazenda:
+                            viewModel.validaFazenda();
+                            break;
+                        case R.id.etItemCalculado:
+                            viewModel.validaItemCalculado();
+                            break;
+                    }
+
+                    return true;
+                }
+
+                return false;
+            }
+        });
+    }
+
+    //endregion
+
+    //region Interfaces
+
     public interface ICadastrarUsuario
     {
         void onConfirmar(UsuarioEnt usuarioEnt);
     }
+
+    //endregion
 }

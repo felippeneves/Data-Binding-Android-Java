@@ -111,11 +111,6 @@ public class ListaUsuariosViewModel extends BaseObservable
     //endregion
 
 
-    public void teste()
-    {
-        Toast.makeText(context, "teste", Toast.LENGTH_SHORT).show();
-    }
-
     //region adapters
 
     public class AdapterUsuario extends RecyclerView.Adapter<AdapterViewHolderUsuario>

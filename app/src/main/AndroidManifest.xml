@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tela.ListaUsuariosActivity"></activity>
+        <activity android:name=".tela.ActivityControlador"></activity>
+        <activity android:name=".tela.ListaUsuariosActivity" />
         <activity android:name=".tela.CadastrarUsuarioActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
